@@ -14,8 +14,8 @@ const AxiosFunction=()=>
   return(
     <div class="main">
       <div class="heading">Heading:Getting API data using axios</div>
-      <div class="title">title:{val.title}      </div>
-      <div class="body" > body:{val.body}</div>
+      <div class="title">TITLE : {val.title}      </div>
+      <div class="body" > BODY : {val.body}</div>
     </div>
   )
 }
