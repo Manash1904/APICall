@@ -1,36 +1,59 @@
 import React from "react";
 import axios from "axios";
-import "./style.css" 
-
-const baseURL = "https://jsonplaceholder.typicode.com/posts/1";
+import { useEffect,useState } from "react";
+import "./style1.css"
+let URL="https://jsonplaceholder.typicode.com/posts/1";
 const AxiosFunction=()=>
 {
-  const [post, setPost] = React.useState(null);
-
-  React.useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setPost(response.data);
-    });
-  }, []);
-  
-  if (!post) return null;
-  return (
+  const [val,setVal]=useState(null);
+  useEffect(()=>{axios.get(URL).then((response)=>
+    //console.log(response.data)
+    setVal(response.data)
+    )},[])
+    if(!val) return ;
+  return(
     <div class="main">
-      <div class="main_heading">API CALL data from https://jsonplaceholder.typicode.com </div>
-      <h1>TITLE:{post.title}</h1>
-      <p>BODY:{post.body}</p>
-    </div>)
-
-
-
-  // const [val,setVal]=useState(null);
-  // const URL="https://jsonplaceholder.typicode.com/posts/1";
-  // useEffect(axios.get(URL).then((response)=>{
-  //   console.log(response.data)
-  //   //setVal(response.data)
-  // }),[])
-  //     return(<div>
-  //       {val.title}
-  //     </div>)
+      <div class="heading">Heading:Getting API data using axios</div>
+      <div class="title">title:{val.title}      </div>
+      <div class="body" > body:{val.body}</div>
+    </div>
+  )
 }
 export default AxiosFunction;
+
+
+
+
+
+
+
+
+
+
+
+// import React from "react";
+// import axios from "axios";
+// import "./style.css" 
+
+// const baseURL = "https://jsonplaceholder.typicode.com/posts/1";
+// const AxiosFunction=()=>
+// {
+//   const [post, setPost] = React.useState(null);
+
+//   React.useEffect(() => {
+//     axios.get(baseURL).then((response) => {
+//       console.log(response)
+//       setPost(response.data);
+//     });
+//   }, []);
+  
+//   if (!post) return null;
+//   return (
+//     <div class="main">
+//       <div class="main_heading">API CALL data from https://jsonplaceholder.typicode.com </div>
+//       <h1>TITLE:{post.title}</h1>
+//       <p>BODY:{post.body}</p>
+//     </div>)
+
+// }
+// export default AxiosFunction;
